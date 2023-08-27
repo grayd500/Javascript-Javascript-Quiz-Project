@@ -1,0 +1,136 @@
+/* Reset and General Styles */
+html {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0; /* Reset default margin */
+    background: rgb(37, 37, 37);
+}
+
+header {
+    display: flex;
+    align-items: center; /* Align baseline of countdown and h1 */    
+    justify-content: space-between; /* Add space between countdown and h1 */
+    padding: 0 20px; /* Add padding to space out from edges */
+    background-color: lightgray; /* Just for visualization */    
+    height: 75px; /* Set a fixed height for the header */
+    overflow: hidden; /* Hide any overflowing content */
+}
+
+#header-content {
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: space-between; /* Distribute space between elements */
+    width: 100%; /* Occupy full width of the header */
+}
+
+#countdown-container {
+    display: flex;
+    align-items: center;
+    width: 150px; /* Adjust the width as needed */
+}
+
+#countdown {
+    font-size: 20px;
+    width: 40px; /* Add a fixed width for the countdown */
+    text-align: center; /* Center the countdown within the fixed width */
+}
+
+header h1 {
+    color: blueviolet;
+    margin: 0; /* Remove margin to allow centering */
+    margin-right: 50px; /* Adjust this value as needed */
+    text-align: center; /* Center the h1 element */
+    vertical-align: middle; /* Align the h1 vertically in the middle */
+    width: calc(100% - 150px); /* Subtract the countdown container width */
+
+}
+
+#score-container {
+    display: flex; /* Add a container for the score */
+    align-items: center;
+    width: 125px;
+}
+
+#score {
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 10px; /* Add margin to separate from the "Score: " text */
+    vertical-align: middle; /* Align the score vertically in the middle */
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content:  flex-start; /* Change to flex-start for vertical alignment */
+    background: rgb(37, 37, 37);
+    padding: 20px;
+}
+
+#question {
+    margin: 10px 0;
+    color: white;
+    font-weight: bold;
+}
+
+#answers {
+    display: none; /* Initially hide the answer area */
+    flex-direction: column;  
+    background-color: whitesmoke;
+    width: auto;
+    padding: 5px;
+    border: 2px solid blue;
+}
+
+button{
+    background-color: blue;
+    color: white;
+    width: 5em;
+    margin: 5px;    
+}
+
+.start-container {
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 7px;
+    box-shadow: inset 0 20px 4px -19px rgba(255, 255, 255, 0.7); /* inset so shadow is on inside of button - horiz offset (shadow up & down) - vert offset puts darkness at top of button - blur - spread (how far out it spread) neg number reduces spread - color */
+
+}
+
+/* Start Button Styles */
+#start{
+    cursor: pointer;
+    outline: none;
+    width: 120px;
+    height: 75px;
+    font-family: Barlow, sans-serif;
+    font-size: 25px;
+    color: white;
+    text-shadow: 0 2px 5px black; /* gives button text some 3d effects*/
+    background: linear-gradient(to top, #696969, #575757);
+    border: 2px solid black;
+    border-radius: 7px;
+    box-shadow: inset 0 20px 4px -19px rgba(255, 255, 255, 0.4), 0 12px 12px 0 rgba(0, 0, 0, 0.3); /* 2 box shadows separated by a comma for under button - will use again with half values for pressed-in effect*/
+    }
+
+    #start:hover {background: linear-gradient(to bottom, #696969, #575757); /* copied from button class above, but top switched to bottom.  this flips the shadow when hovered over */
+    }
+    
+    #start:active {
+        transform: translateY(3px);
+        box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.3); /* pulled from button box-shadow with half the values for offsets*/
+
+    }
+
+    #result {
+        color: rgb(5, 249, 9);
+        font-weight: bold;
+    }
+
+    #final {
+        color: rgb(226, 212, 18);
+        font-weight: bold;
+    }
