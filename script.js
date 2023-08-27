@@ -13,6 +13,7 @@ var currentQuestionIndex = 0;
 var timeInterval; // Declare the interval variable here
 var timeLeft = 60;
 var currentScore = 0;
+var quizEnded = false;
 
 
 // Define the questions array
@@ -36,6 +37,7 @@ var questions = [
 
 // Function to start the quiz and countdown timer
 function startQuiz() {
+    quizEnded = false;
     resetQuiz(); // Reset the quiz before starting
     displayQuestion();
     countdown();
@@ -81,6 +83,9 @@ function displayQuestion() {
 
 // Function to check the user's answer and move to the next question
 function checkAnswer(correctAnswer, selectedAnswer) {
+    if (quizEnded) { // Add this line
+        return; // Add this line
+    }
     if (correctAnswer === selectedAnswer) {
         currentScore += 100; // Increment the currentScore by 10
         resultEl.innerHTML = '<div style="text-align: center;"><span style="color: #00FF00;">Hooray!</span><br><span style="color: white;">You earned 100 points!</span></div>';
@@ -102,8 +107,9 @@ function checkAnswer(correctAnswer, selectedAnswer) {
 
 // Function to end the quiz
 function endQuiz() {
+    quizEnded = true;
     clearInterval(timeInterval); // Clear the interval to stop the timer
-    finalEl.textContent = "Game Over";
+    finalEl.textContent = "Game Over - Bonus Points for time awarded.";
     scoreLabel.textContent = "Final Score: ";
     scoreEl.textContent = (timeLeft+currentScore); // Update the score display
 
